@@ -14,5 +14,5 @@ spec:
     path: app1-manifest
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
