@@ -1,0 +1,18 @@
+piVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: parent-app
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    repoURL: https://github.com/junichi-tanaka/argocd-app-of-apps-demo.git
+    targetRevision: HEAD
+    path: apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

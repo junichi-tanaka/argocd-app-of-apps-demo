@@ -1,0 +1,18 @@
+# apps/app1.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    repoURL: https://github.com/junichi-tanaka/argocd-app-of-apps-demo.git
+    targetRevision: HEAD
+    path: app2-manifest
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
